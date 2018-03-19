@@ -1,0 +1,435 @@
+@charset "UTF-8";
+
+html,body{height:100%;margin-left:auto;margin-right:auto;}
+@media (min-width:768px) {
+  body{width:640px;}
+}
+
+.fs-10{font-size:1rem;}
+.fs-12{font-size:1.2rem;}
+.fs-14{font-size:1.4rem;}
+.fs-16{font-size:1.6rem;}
+.fs-18{font-size:1.8rem;}
+.fs-20{font-size:2rem;}
+.fs-25{font-size:2.5rem;}
+.fs-30{font-size:3rem;}
+.container_index{position:relative;
+    /*background: #ffd5a8;*/
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffd5a8), to(#ff9b65));
+    min-height:100%;
+    }
+
+.eo-bg {
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+.tabs {
+    /*top:22rem;*/
+    z-index: 1;
+}
+
+.tabs .tab{
+    width:48%;
+    height:5rem;
+    /*margin:1.05rem;*/
+    border-radius:1rem;
+    background-color:#cc333d;
+    color:#f9e7ad;
+    text-align:center;
+    padding-top:0.5rem;
+    z-index: 10;
+}
+.tabs .tab.active{
+    background-color:#e03c47;
+    color:#f9e7ae;
+    z-index:-1
+
+}
+.content{
+    width:100%;
+    z-index: 100;
+}
+.tabcontent{
+    width:100%;
+    background:#e03c47;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding-bottom:1rem;
+
+}
+.title_yy{
+    color:#f9e7ae;
+    font-size:1.6rem;
+    margin:0 auto;
+    text-align:center;
+    padding:.5rem 0;
+    background:url("./../img/yy.png") no-repeat ;
+    background-size:100%;
+    width:20rem;
+    height:4rem;
+}
+.blankcontent{
+    width: 100%;
+    position: relative;
+    top: -1px;
+
+}
+
+.tabcontent_l li{
+    float:left;
+    width:40%;
+    background:url("./../img/bili_bg.png") no-repeat ;
+    background-size:100%;
+    height:6rem;
+    margin-left:1.9rem;
+
+}
+.bili{
+    color:#c8a15d;
+}
+
+.examplecontent{
+    color:#fff;
+    border:0.22rem solid #df9969;
+    border-radius:1rem;
+    padding:0 1rem 1rem;
+    margin:1rem 2rem 0;
+    font-size:1.2rem;
+}
+.example_title{
+    position:relative;
+    top:-1rem;
+    font-size:1.6rem;
+    color:#f6d7a3;
+    background:#e03c47;
+    margin:0 auto;
+    width:10rem;
+    text-align:center;
+}
+.color_f6d7a3{
+    color:#f6d7a3;
+}
+
+.rulecontent{
+    width: 100%;
+    padding: 0 0.18rem;
+    position: relative;
+    top: -1px;
+}
+
+
+.rulecontent_bg{
+    padding-top:2rem;
+    width:100%;
+    background:#c4263d;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+}
+.title_reg{
+    color:#f9e7ad;
+    font-size:1.6rem;
+    margin:0 auto;
+    text-align:center;
+    padding:.5rem 0;
+    background:url("./../img/reg.png") no-repeat ;
+    background-size:100%;
+    width:20rem;
+    height:4rem;
+}
+.color_f9e7ad{color:#f9e7ad}
+.hongbao{
+    background:url("./../img/hongbao.png") no-repeat;
+    background-size:100%;
+    width:15rem;
+    height:15rem;
+    margin:0 auto;
+    text-align:center;
+    color:#f9e7ad;
+}
+.hongbao_position{
+    position:relative;
+    top:9rem;
+}
+.title_rule{
+    position:relative;
+    top:2rem;
+    color:#f9e7ad;
+    font-size:1.6rem;
+    margin:0 auto;
+    text-align:center;
+    padding:.5rem 0;
+    background:url("./../img/rule.png") no-repeat ;
+    background-size:100%;
+    width:16rem;
+    height:5rem;
+
+}
+.rulelist{
+    padding-bottom:3rem;
+}
+.rulelist li{
+    color:#fff;
+    margin:.5rem 2rem;
+}
+.copyright{
+    color:#fff;
+    font-size:1rem;
+    margin: 1rem 0;
+    text-align:center;
+    position: relative;
+    top: -1px;
+}
+
+.tuijian{
+    width: 6rem;
+    right: 1rem;
+    top: 1rem;
+}
+.tuijian a{
+    color: #f9e7ae;
+    font-size: 1.2rem;
+    text-decoration:underline;
+
+}
+
+/*********抽奖********/
+.contentcj{
+    width:100%;
+    background:#e03c47;
+}
+.blankimg{
+    background:url("./../img/choujiang_bg_02.png") no-repeat ;
+    background-size:100%;
+    position: relative;
+    top: 1px;
+}
+.jiayouyuan{
+    width:6rem;
+    margin:0 auto;
+}
+.jiayouyuan img{
+    margin-top:2rem;
+}
+.laohujicontent{
+    height:22rem;
+    margin:2rem 2rem 0;
+}
+
+.eo-box {
+    /*top: 12.5rem;*/
+    /*margin-bottom: 45%;*/
+    z-index: 2;
+}
+
+.eo-num {
+    left: 12%;
+    top: 5rem;
+    width: 73.85%;
+    height: 6.15rem;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.eo-num .eo-num-span {
+    display: block;
+    float: left;
+    width: 25%;
+    height: 6.15rem;
+    line-height: 6.15rem;
+    text-align: center;
+    font-size: 5rem;
+    color: #ff3030;
+    position: relative;
+}
+.eo-num .eo-num-span b {
+    display: block;
+    width: 100%;
+    height: 6.15rem;
+    line-height: 6.15rem;
+}
+.content_btn{
+    margin:0 3rem ;
+    padding-bottom:2rem;
+}
+.btn.btn-getoil{
+    color: #956614;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffecbe), to(#ffbc42));
+    border-color: none;
+    border-radius:1rem;
+}
+.btn.btn-backhome{
+    color: #f9e5ac;
+    background: inherit;
+    border:0.2rem solid #f0bd7b;
+    border-radius:1rem;
+
+}
+
+.recordList li{
+    margin:0.5rem 1rem;
+    text-align:left;
+}
+.recordTel{
+    width:8rem;
+}
+
+.content_hb{
+    position: absolute;
+    top: 14rem;
+    left: 0;
+    width: 100%;
+    padding:0 2rem;
+
+}
+.container_hb{position:relative;
+    /*background: #ffd5a8;*/
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffbd84), to(#ff9b65));
+    min-height: 50%;
+}
+
+.list_hb li{
+    float:left;
+    width:29%;
+    background:url("./../img/li_hb.png") no-repeat ;
+    background-size:100%;
+    height:12rem;
+    margin-left:1rem;
+}
+
+.text-333{
+    color:#333333;
+}
+.btn.btn-use{
+    color: #956614;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffecbe), to(#ffbc42));
+    border-color: none;
+    border-radius:0.3rem;
+    box-shadow:0px 3px 5px #5d4d43;
+}
+.btn.btn-usercenter{
+    color: #fff;
+    background: inherit;
+    border:0.2rem solid #fff;
+    border-radius:1rem;
+}
+
+.container_reg{
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffcc9c), to(#ffac75));
+    min-height: 70%;
+}
+
+.content_form{
+    position:relative;
+    z-index: 10;
+    background:#e03c47;
+    border-radius:1rem;
+    padding:1rem 1rem;
+}
+
+.title_reg{
+    color: #f9e7ae;
+    font-size: 1.6rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0;
+    background: url(./../img/yy.png) no-repeat;
+    background-size: 100%;
+    width: 25rem;
+    height: 4rem
+}
+
+
+input.form-control{
+    background:inherit;
+    border: 0.05rem solid #fff;
+    color:#fff;
+}
+input.form-control:focus{border-color: #ffffff;outline:0;
+    -webkit-box-shadow:inset 0 0.1rem 0.1rem rgba(0,0,0,.075), 0 0 0.8rem rgba(255, 255, 255, 0.6);
+    box-shadow:inset 0 0.1rem 0.1rem rgba(0,0,0,.075), 0 0 0.8rem rgba(255, 255, 255, 0.6);
+}
+form .form-group{
+    margin-bottom:1rem;
+}
+.form-group .imgVcode {
+    height: 3rem;
+}
+.form-group .right .btn {
+    /*margin-top: -1rem;*/
+    height: 3.0rem;
+}
+.btn-reg{
+    background: #ffa019;
+    border-radius:.5rem;
+    color:#fff;
+    font-size:1.4rem;
+}
+.content_btn_reg{
+    margin:0 1rem ;
+    padding-bottom:2rem;
+}
+.content_tellist{
+    width: 98%;
+    margin: 0 auto;
+    position:relative;
+    z-index: 1;
+    top:-1rem;
+    background:#c4263d;
+    border-radius:1rem;
+    padding:2rem 1rem;
+}
+.user-list {
+    margin: 1.5rem 0 .8rem;
+    height: 13rem;
+    overflow: hidden;
+    /*background-color: #f3eaeb;*/
+}
+.content_tellist li{
+    margin: 0 1rem;
+    color:#fff;
+    text-align:left;
+    height:2.6rem;
+}
+
+.content_beishu {
+    margin-bottom: 3rem;
+}
+
+
+.container_shangzhang{
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffcc9c), to(#ffac75));
+    min-height: 70%;
+
+}
+
+.content_zhexian{
+    position:relative;
+    z-index: 10;
+    background:#e03c47;
+    border-radius:1rem;
+    padding:1rem 1rem;
+}
+.content_gongshi{
+    width: 98%;
+    margin: 0 auto;
+    position:relative;
+    z-index: 1;
+    top:-1rem;
+    background:#c4263d;
+    border-radius:1rem;
+    padding:4rem 1rem;
+}
+
+.zuobiao{
+    background:url("./../img/zuobiao.png") no-repeat;
+    background-size:100%;
+    height:16rem;
+}
+
+.hongbao_zhangjia{
+    text-align:center;
+    width:14rem;
+    margin: 3rem auto;
+}

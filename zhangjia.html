@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<meta name="ML-Config" content="fullscreen=yes,preventMove=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>油价上涨了</title>
+<link rel="stylesheet" href="css/global-mobile.css" />
+<link rel="stylesheet" href="css/layout-mobile.css" />
+<script type="text/javascript">
+var cssEl = document.createElement('style');
+document.documentElement.firstElementChild.appendChild(cssEl);
+function setPxPerRem(){
+    var dpr = 1;
+    var pxPerRem = document.documentElement.clientWidth * dpr / 32;
+    if (pxPerRem < 10) pxPerRem = 10;
+    if (pxPerRem > 20) pxPerRem = 20;
+    cssEl.innerHTML = 'html{font-size:' + pxPerRem + 'px!important;}';
+}
+setPxPerRem();
+</script>
+</head>
+<body>
+  <div class="eo-bg">
+    <img src="img/top_shangzhang_01.png" />
+    <div class="content_hb">
+
+
+    </div>
+  </div>
+
+  <div class="container container_shangzhang">
+    <div class="content content_zhexian">
+      <div class="zuobiao">
+        <canvas id='canvas' style="width:100%;height:15rem;">您的浏览器版本过低,请升级您的浏览器...</canvas>
+      </div>
+
+    </div>
+
+  <div class="content_gongshi text-white">
+
+    <div class="ml-10 mr-10 hide" id="formula">
+      <div class="fs-12">
+        油价上涨获得红利:
+      </div>
+      <div class="mt-10 fs-14">
+        上涨红利 =<span class="">（6.89 - 6.00）x 1000</span>
+        <div class="fs-18 mt-10 ml-30 pl-30">=890元</div>
+      </div>
+      <div class="fs-10 mt-20">
+        注：(兑换日油价-购买日油价) x 持有升数，此油价为
+        虚拟油价。
+      </div>
+    </div>
+    <div class="hongbao_zhangjia">
+      <img src="img/hongbao.png" alt=""/>
+    </div>
+
+    <div class="content_btn_reg mt-30">
+      <button class="btn btn-use mb-10">拆红包</button>
+    </div>
+  </div>
+
+
+</div>
+
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/bOilPlugIn/bOilPlugIn.js"></script>
+<script>
+
+  function drawCurvePath( ctx, start, end, curveness, percent ) {
+    var cp = [ ( start[ 0 ] + end[ 0 ] ) / 2 - ( start[ 1 ] - end[ 1 ] ) * curveness, ( start[ 1 ] + end[ 1 ] ) / 2 - ( end[ 0 ] - start[ 0 ] ) * curveness ];
+    ctx.moveTo( start[ 0 ], start[ 1 ] );
+    for ( var t = 0; t <= percent / 100; t += 0.01 ) {
+      var x = quadraticBezier( start[ 0 ], cp[ 0 ], end[ 0 ], t );
+      var y = quadraticBezier( start[ 1 ], cp[ 1 ], end[ 1 ], t );
+      ctx.lineTo( x, y );
+    }
+  }
+  function quadraticBezier(p0, p1, p2, t ) {
+    var k = 1 - t;
+    return k * k * p0 + 2 * ( 1 - t ) * t * p1 + t * t * p2; // 这个方程就是二次贝赛尔曲线方程
+   }
+
+
+  var bOilApp = new bOilPlugIn(), App = {
+    //是否后端开发状态(0前端，1后端)
+    status: 0,
+
+    init: function () {
+
+
+    },
+
+    renderLine:function(){
+
+      var canvas = document.getElementById( 'canvas' );
+      var ctx = canvas.getContext( '2d' );
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#eecb6a';
+      var percent = 0;
+      function animate() {
+        ctx.clearRect(  0, 100,0, 300 );
+        ctx.beginPath();
+        drawCurvePath( ctx, [ 120, 90 ],[ 250, 0 ], -0.2, percent );
+        ctx.stroke();
+        percent = ( percent + 1 ) % 100;
+        if(percent < 70){
+          requestAnimationFrame( animate );
+        }else{
+          $("#formula").slideDown(); //展示公式
+        }
+//        animate.call()
+      }
+      animate();
+
+
+    }
+  };
+  $(function(){
+    App.init();
+    App.renderLine();
+
+  })
+
+</script>
+</body>
+</html>

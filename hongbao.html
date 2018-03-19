@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<meta name="ML-Config" content="fullscreen=yes,preventMove=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>红包</title>
+<link rel="stylesheet" href="css/global-mobile.css" />
+<link rel="stylesheet" href="css/layout-mobile.css" />
+<script type="text/javascript">
+var cssEl = document.createElement('style');
+document.documentElement.firstElementChild.appendChild(cssEl);
+function setPxPerRem(){
+    var dpr = 1;
+    var pxPerRem = document.documentElement.clientWidth * dpr / 32;
+    if (pxPerRem < 10) pxPerRem = 10;
+    if (pxPerRem > 20) pxPerRem = 20;
+    cssEl.innerHTML = 'html{font-size:' + pxPerRem + 'px!important;}';
+}
+setPxPerRem();
+</script>
+</head>
+<body>
+<div class="eo-bg">
+  <img src="img/hb_top.png" />
+  <div class="content_hb">
+    <ul class="list-unstyled list_hb clear">
+      <li class=""><div class="fs-10 text-white text-center mt-15">满1000元使用</div><div class="fs-16 text-white text-center mt-25">10元</div></li>
+      <li class=""><div class="fs-10 text-white text-center mt-15">满3000元使用</div><div class="fs-16 text-white text-center mt-25">30元</div></li>
+      <li class=""><div class="fs-10 text-white text-center mt-15">满5000元使用</div><div class="fs-16 text-white text-center mt-25">50元</div></li>
+      <li class=""><div class="fs-10 text-white text-center mt-15">满10000元使用</div><div class="fs-16 text-white text-center mt-25">100元</div></li>
+      <li class=""><div class="fs-10 text-white text-center mt-15">满20000元使用</div><div class="fs-16 text-white text-center mt-25">200元</div></li>
+      <li class=""><div class="fs-10 text-white text-center mt-15">满50000元使用</div><div class="fs-16 text-white text-center mt-25">500元</div></li>
+
+    </ul>
+  </div>
+</div>
+<div class="container container_hb">
+  <div class="content text-center">
+    <span class="fs-16 text-333 ">红包合计金额：</span><span class="text-danger fs-20 ">890元</span>
+
+  </div>
+  <div class="content_btn mt-30">
+    <button class="btn btn-use mb-10">立即使用</button>
+    <button class="btn btn-usercenter mb-20">个人中心</button>
+  </div>
+
+
+</div>
+
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/bOilPlugIn/bOilPlugIn.js"></script>
+<script>
+
+  var bOilApp = new bOilPlugIn(), App = {
+    //是否后端开发状态(0前端，1后端)
+    status: 0,
+
+    init: function () {
+
+
+    }};
+
+  $(function(){
+    App.init();
+
+  })
+
+</script>
+</body>
+</html>

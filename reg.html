@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<meta name="ML-Config" content="fullscreen=yes,preventMove=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>注册</title>
+<link rel="stylesheet" href="css/global-mobile.css" />
+<link rel="stylesheet" href="css/layout-mobile.css" />
+<script type="text/javascript">
+var cssEl = document.createElement('style');
+document.documentElement.firstElementChild.appendChild(cssEl);
+function setPxPerRem(){
+    var dpr = 1;
+    var pxPerRem = document.documentElement.clientWidth * dpr / 32;
+    if (pxPerRem < 10) pxPerRem = 10;
+    if (pxPerRem > 20) pxPerRem = 20;
+    cssEl.innerHTML = 'html{font-size:' + pxPerRem + 'px!important;}';
+}
+setPxPerRem();
+</script>
+</head>
+<body>
+<div class="eo-bg">
+  <img src="img/reg_top.png" />
+  <div class="content_hb">
+
+  </div>
+</div>
+<div class="container container_reg">
+  <div class="content content_form">
+    <div class="title_reg mt-10 mb-20">立即注册，领取1000升体验油！</div>
+
+    <form action="" >
+      <ul class="list-unstyled list-p5">
+        <li>
+          <div class="form-group">
+            <input id="userPhone" class="form-control" type="tel" maxlength="11" placeholder="请输入手机号码">
+          </div>
+        </li>
+        <li>
+          <div class="form-group clear">
+              <span class="left" style="width:15rem;">
+                  <input id="imgCode" class="form-control" type="text" maxlength="4" placeholder="图形验证码">
+              </span>
+              <span class="right">
+                  <img class="imgVcode" src="img/imgVcode.gif">
+              </span>
+          </div>
+        </li>
+        <li>
+          <div class="form-group clear">
+              <span class="left" style="width:15rem;">
+                  <input id="phoneCode" class="form-control" type="tel" maxlength="6" placeholder="短信验证码">
+              </span>
+              <span class="right" style="width:10rem;">
+                  <a id="phoneCodeBtn" class="btn btn-reg" href="javascript:void(0);">获取验证码</a>
+              </span>
+          </div>
+        </li>
+
+      </ul>
+    </form>
+
+    <div class="content_btn_reg mt-30">
+      <button id="submitBtn" class="btn btn-use mb-10">立即领取</button>
+    </div>
+</div>
+  <div id="scrollList" class=" content_tellist">
+    <ul id="resHtml" class="user-list list-unstyled">
+      <li><span class="recordTel">139****5678</span><span class="recordProfit">已成功领取1000L体验油</span></li>
+      <li><span class="recordTel">139****5678</span><span class="recordProfit">已成功领取890元储油优惠包</span></li>
+      <li><span class="recordTel">139****5678</span><span class="recordProfit">已成功领取1000L体验油</span></li>
+      <li><span class="recordTel">139****5678</span><span class="recordProfit">已成功领取890元储油优惠包</span></li>
+      <li><span class="recordTel">139****5678</span><span class="recordProfit">已成功领取1000L体验油</span></li>
+      <li><span class="recordTel">139****5678</span><span class="recordProfit">已成功领取890元储油优惠包</span></li>
+    </ul>
+
+  </div>
+
+  <div class="content_beishu">
+    <img src="img/beishu.png" alt=""/>
+  </div>
+
+
+</div>
+
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/bOilPlugIn/bOilPlugIn.js"></script>
+<script>
+
+  var bOilApp = new bOilPlugIn(), App = {
+    //是否后端开发状态(0前端，1后端)
+    status: 0,
+    //获奖名单
+    scollDown: function (id, time) {
+      var tagUl = $("#" + id + " ul"), liLength = tagUl.find("li").length;
+      var li_index = 0;
+
+      if (liLength > 5) {
+        (function scrollList() {
+          tagUl.prepend(tagUl.find("li:last").css("height", "0px").animate({
+            height: 2.6 + "rem"
+          }, "slow", function () {
+            li_index++;
+            //console.log(li_index);
+            if (li_index == 6) {
+              li_index = 0;
+              //获取手机号码
+//              App.getScrollList();
+            }
+          }));
+          setTimeout(function () {
+            scrollList();
+          }, time);
+        })();
+      }
+    },
+
+    init: function () {
+
+      //点击验证码时校验
+      $('#phoneCodeBtn').on('click', function () {
+        var _this = this, thisId = $(_this).attr('id'), res = bOilApp.getPhoneCord(_this, 'userPhone',  'imgCode');
+        if (App.status) {//后端开发
+          if (res) {
+            //前端校验通过,后端请求
+            $.ajax({
+              url: '',
+              dataType: '',
+              data: {},
+              type: 'post',
+              success: function () {
+                //to do something...
+
+                //执行倒计时
+                bOilApp.codeTime(thisId, res, 120);
+              },
+              error: function () {
+
+              }
+            });
+          }
+        } else {//前端开发
+          if (res) {
+            //执行倒计时
+            bOilApp.codeTime(thisId, res, 120);
+          }
+        }
+      });
+
+      //点击提交按钮时校验
+      $('#submitBtn').on('click', function () {
+        var _this = this, res = bOilApp.submintForm(_this, '#userPhone', '#imgCode', '#phoneCode');
+
+        if (App.status) {
+          if (res) {
+            //前端校验通过,后端请求
+            $.ajax({
+              url: '',
+              dataType: '',
+              data: {},
+              type: 'post',
+              success: function () {
+                window.location.href = 'http://www.baidu.com/'
+                //等候加载提示
+                bOilApp.alertMsg(bOilApp.loadingText, _this, 'loading');
+              },
+              error: function () {
+
+              }
+            });
+          }
+        } else {
+          if (res) {
+            window.location.href = 'http://www.baidu.com/';
+            //跳转页面前的等候加载提示
+            bOilApp.alertMsg(bOilApp.loadingText, _this, 'loading');
+          }
+        }
+      });
+
+
+      //滚动获奖名单列表
+      setTimeout(function () {
+        App.scollDown("scrollList", 1000);
+      }, 1000);
+    }};
+
+  $(function(){
+    App.init();
+
+  })
+
+</script>
+</body>
+</html>
